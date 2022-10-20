@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { TeamResponse } from '../interfaces/teams-interface';
+import { League, TeamResponse } from '../interfaces/teams-interface';
 
 @Injectable({
   providedIn: 'root',

@@ -4,16 +4,16 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { IndexComponent } from './components/index/index.component';
-
+import { AppRoutingModule } from './app-routing.module';
 import { MaterialImportsModule } from './material-imports/material-imports.module';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { AppRoutingModule } from './app-routing.module';
 import { TeamListComponent } from './components/team-list/team-list.component';
 import { TeamInfoComponent } from './components/team-info/team-info.component';
 import { PlayerListComponent } from './components/player-list/player-list.component';
 import { PlayerInfoComponent } from './components/player-info/player-info.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { PipePipe } from './pipes/pipe.pipe';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,15 +22,16 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     TeamInfoComponent,
     PlayerListComponent,
     PlayerInfoComponent,
+    PipePipe,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
+    AppRoutingModule,
     FlexLayoutModule,
     BrowserAnimationsModule,
     MaterialImportsModule,
     FormsModule,
-    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
