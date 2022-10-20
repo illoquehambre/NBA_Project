@@ -14,7 +14,6 @@ import { TeamInfoComponent } from './components/team-info/team-info.component';
 import { PlayerListComponent } from './components/player-list/player-list.component';
 import { PlayerInfoComponent } from './components/player-info/player-info.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
-
 @NgModule({
   declarations: [
     AppComponent,

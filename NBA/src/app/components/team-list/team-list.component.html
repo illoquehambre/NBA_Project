@@ -1,1 +1,10 @@
-<p>team-list works!</p>
+<mat-form-field appearance="fill">
+  <mat-label>Select an option</mat-label>
+  <mat-select [(value)]="selected">
+    <mat-option *ngFor="let years of listYear"></mat-option>
+  </mat-select>
+</mat-form-field>
+<div fxFlexFill>
+
+  <p *ngFor="let team of listTeam">{{ team.fullName }}</p>
+</div>
