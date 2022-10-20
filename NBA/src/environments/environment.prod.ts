@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  API_BASE_URL: 'http://data.nba.net/data/10s/prod/v1'
 };
