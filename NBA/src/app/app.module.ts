@@ -13,6 +13,7 @@ import { TeamListComponent } from './components/team-list/team-list.component';
 import { TeamInfoComponent } from './components/team-info/team-info.component';
 import { PlayerListComponent } from './components/player-list/player-list.component';
 import { PlayerInfoComponent } from './components/player-info/player-info.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   declarations: [
@@ -21,17 +22,18 @@ import { PlayerInfoComponent } from './components/player-info/player-info.compon
     TeamListComponent,
     TeamInfoComponent,
     PlayerListComponent,
-    PlayerInfoComponent
+    PlayerInfoComponent,
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
+    FlexLayoutModule,
     BrowserAnimationsModule,
     MaterialImportsModule,
     FormsModule,
-    HttpClientModule, 
-    AppRoutingModule
+    AppRoutingModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
