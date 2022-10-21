@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Player, } from 'src/app/interfaces/playersList.interface';
 import { PlayersService } from 'src/app/services/players.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-player-list',
@@ -36,6 +37,10 @@ export class PlayerListComponent implements OnInit {
     }
    
 
+  }
+  showImgPlayer(player: Player) {
+    let id = player.personId;
+    return `${environment.API_IMG_PLAYER_URL}/${id}.png`;
   }
 
 }
