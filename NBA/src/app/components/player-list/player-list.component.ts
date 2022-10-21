@@ -13,6 +13,7 @@ export class PlayerListComponent implements OnInit {
   playerList: Player[]=[]
   yearList:number[]=[]
   yearSelected: number = {} as number;
+  numPages=0
 
   constructor(
     private playersService: PlayersService
@@ -20,18 +21,27 @@ export class PlayerListComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.playersService.getPlayerList(this.currentYear).subscribe(resp =>{
-      this.playerList=resp.league.standard;
-    })
+    this.getPlayersPage(1, this.currentYear )
 
     for (let i = 0; 2012+i<=this.currentYear; i++) {
       this.yearList[i]=(this.currentYear)-i;      
     }
   }
 
+  getPlayersPage(page: number, year: number){
+    let count=0
+    this.playersService.getPlayerList(year, page).subscribe(resp =>{
+      this.playerList=resp.league.standard;
+      this.playerList.forEach(player => {
+        count++      
+      });
+      this.numPages=Math.ceil(count/20)
+    })
+  }
+
   selectYear() {
     if(this.yearSelected !== null){
-      this.playersService.getPlayerList(this.yearSelected).subscribe(resp =>{
+      this.playersService.getPlayerList(this.yearSelected, this.numPages).subscribe(resp =>{
         this.playerList = resp.league.standard;
       })
     }
@@ -42,5 +52,7 @@ export class PlayerListComponent implements OnInit {
     let id = player.personId;
     return `${environment.API_IMG_PLAYER_URL}/${id}.png`;
   }
-
+  counter(){
+    return new Array(this.numPages)
+  }
 }

@@ -23,6 +23,10 @@
       </mat-select>
     </mat-form-field>
   </div>
+  <div>
+    <span *ngFor="let in of counter(); let i = index"><button
+        (click)="getPlayersPage(i+1, yearSelected)">{{i+1}}</button>&nbsp;</span>
+  </div>
   <mat-progress-bar mode="buffer"></mat-progress-bar>
 
   <div

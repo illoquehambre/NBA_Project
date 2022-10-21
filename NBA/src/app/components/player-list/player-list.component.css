@@ -4,7 +4,8 @@ li {
   
   body {
     background-image: url("https://fondosmil.com/fondo/1785.jpg");
-    background-repeat: repeat;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
     height: auto;
     color: white;
   }
