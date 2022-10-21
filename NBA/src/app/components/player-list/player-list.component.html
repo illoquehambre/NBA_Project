@@ -1,13 +1,19 @@
 <p>Buenos dias, esto funciona</p>
 
-
 <mat-form-field appearance="fill">
-    <mat-label>Select an option</mat-label>
-    <mat-select [(value)]="yearSelected" (valueChange)="selectYear()">
-      <mat-option *ngFor="let year of yearList" [value]="year">{{year}}</mat-option>
-    </mat-select>
-  </mat-form-field>
+  <mat-label>Select an option</mat-label>
+  <mat-select [(value)]="yearSelected" (valueChange)="selectYear()">
+    <mat-option *ngFor="let year of yearList" [value]="year">{{
+      year
+    }}</mat-option>
+  </mat-select>
+</mat-form-field>
 
 <ul>
-    <li *ngFor="let player of playerList; " >{{player.firstName}}</li>
+  <li *ngFor="let player of playerList">
+    {{ player.personId }}
+    <button [routerLink]="['/player-info', yearSelected, player.personId]">
+      More info
+    </button>
+  </li>
 </ul>

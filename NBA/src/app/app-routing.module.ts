@@ -10,7 +10,7 @@ import { TeamListComponent } from './components/team-list/team-list.component';
 const routes: Routes = [
   { path: 'index', component: IndexComponent },
   { path: 'player-list', component: PlayerListComponent },
-  { path: 'player-info', component: PlayerInfoComponent },
+  { path: 'player-info/:year/:id', component: PlayerInfoComponent },
   { path: 'team-list', component: TeamListComponent },
   { path: 'team-info', component: TeamInfoComponent },
   { path: '', redirectTo: '/index', pathMatch: 'full' },

@@ -1,0 +1,36 @@
+.example-card {
+  max-width: 400px;
+  background-color: rgba(215, 220, 250, 0.685);
+}
+
+.example-header-image {
+  background-image: url("https://images.tcdn.com.br/img/img_prod/626443/luminoso_de_parede_basquete_nba_30cm_acrilico_led_luminoso_de_bar_e_churrasqueira_placa_decorativa_d_128_1_20200204134714.jpg");
+  background-size: cover;
+}
+body {
+  background-image: url("https://www.wallpapertip.com/wmimgs/4-48639_nba-wallpapers-facts-about-nba-free-chrome-extension.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.cajaImg {
+  width: 80%;
+  margin: auto;
+}
+.container {
+  width: 85%;
+  margin: auto;
+  border-radius: 5%;
+  background-color: rgba(215, 220, 250, 0.685);
+  display: flex;
+}
+
+h4 {
+  font-size: 40px;
+  font-family: fantasy;
+}
+.informacion{
+    display: flex;
+}
+li{
+    list-style: none;
+}

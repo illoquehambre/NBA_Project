@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { League, Team } from 'src/app/interfaces/teams-interface';
+import { Team } from 'src/app/interfaces/teams-interface';
 import { TeamsService } from 'src/app/services/teams.service';
 import { environment } from 'src/environments/environment';
 @Component({
@@ -11,7 +11,7 @@ export class TeamListComponent implements OnInit {
   listTeam: Team[] = [];
   year = new Date().getFullYear();
   listYear: number[] = [];
-  yearSelected: number = {} as number;
+  yearSelected: number = this.year;
 
   constructor(private teamService: TeamsService) {}
 

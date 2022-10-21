@@ -1,1 +1,74 @@
-<p>player-info works!</p>
+<body>
+  <div class="contenedorP">
+    <div [ngStyle]="{ 'text-align': 'center' }" class="cajaImg">
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Los_Angeles_Lakers_logo.svg/1200px-Los_Angeles_Lakers_logo.svg.png"
+        [ngStyle]="{ width: '20%' }"
+      />
+    </div>
+    <div class="container">
+      <mat-card class="example-card">
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+        </mat-card-header>
+        <img
+          mat-card-image
+          [src]="showImg(player)"
+          alt="Photo of a Shiba Inu"
+        />
+      </mat-card>
+      <div class="informacion">
+        <div
+          [ngStyle]="{
+            'background-color ': 'brown',
+            width: '80%',
+            'margin-left': '2em',
+            display: 'flex',
+            'flex-direction': 'column'
+          }"
+        >
+          <h4>{{ player.firstName }} {{ player.lastName }}</h4>
+          <p>Bull dogs tem</p>
+        </div>
+        <div class="PlayerHeader__Bio pv5">
+          <div
+            class="flex brdr-clr-gray-07 pl4 bl bl--dotted n8 brdr-clr-gray-07"
+          >
+            <ul
+              class="PlayerHeader__Bio_List flex flex-column list clr-gray-04"
+            >
+              <li>
+                <div class="ttu">Est/Pes</div>
+                <div class="fw-medium clr-black"><div>{{player.heightMeters}} m, {{player.weightKilograms}} kg</div></div>
+              </li>
+              <li>
+                <div class="ttu">FDN</div>
+                <div class="fw-medium clr-black"><div>{{player.dateOfBirthUTC}}</div></div>
+              </li>
+              <li>
+                <div class="ttu">Universidad</div>
+                <div class="fw-medium clr-black"><div>{{player.pos}}</div></div>
+              </li>
+              <li>
+                <div class="ttu">Info Draft</div>
+                <div class="fw-medium clr-black">
+                  <div>2009: Rd 1, Sel. 9 (TOR)</div>
+                </div>
+              </li>
+              <li>
+                <div class="ttu">Estatus</div>
+                <div class="fw-medium clr-black">
+                  <div>
+                    <span class="TextStatus TextStatus--green plain ml0"
+                      >Activo</span
+                    >
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
