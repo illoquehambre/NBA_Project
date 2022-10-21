@@ -28,7 +28,7 @@ export class PlayerInfoComponent implements OnInit {
   }
 
   savePlayer() {
-    this.playerService.getPlayerList(this.year).subscribe((resp) => {
+    this.playerService.getPlayerList(this.year, 2).subscribe((resp) => {
       debugger;
       this.playerList = resp.league.standard;
       for (let i of this.playerList) {
