@@ -11,7 +11,7 @@ export class TeamListComponent implements OnInit {
   listTeam: Team[] = [];
   year = new Date().getFullYear();
   listYear: number[] = [];
-  yearSelected: number = {} as number;
+  yearSelected: number = this.year;
 
   constructor(private teamService: TeamsService) {}
 
@@ -25,9 +25,9 @@ export class TeamListComponent implements OnInit {
       this.listTeam = res.league.standard;
     });
 
-    for (let i = 0; 2012 + i <= this.year; i++) {
-      this.listYear[i] = this.year - i;
-    }
+      for (let i = 0; 2012 + i <= this.year; i++) {
+        this.listYear[i] = this.year - i;
+      }
   }
 
   selectYear() {
