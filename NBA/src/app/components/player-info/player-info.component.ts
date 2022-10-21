@@ -28,8 +28,7 @@ export class PlayerInfoComponent implements OnInit {
   }
 
   savePlayer() {
-    this.playerService.getPlayerList(this.year, 2).subscribe((resp) => {
-      debugger;
+    this.playerService.getPlayerList(this.year).subscribe((resp) => {
       this.playerList = resp.league.standard;
       for (let i of this.playerList) {
         if (this.id == i.personId) {
@@ -40,6 +39,6 @@ export class PlayerInfoComponent implements OnInit {
   }
 
   showImg(player: Player) {
-    return `${environment.API_URL_IMG_PLAYERS}/${player.personId}.png`;
+    return `${environment.API_IMG_PLAYER_URL}/${player.personId}.png`;
   }
 }

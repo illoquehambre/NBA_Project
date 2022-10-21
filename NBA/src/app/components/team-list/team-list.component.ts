@@ -30,6 +30,7 @@ export class TeamListComponent implements OnInit {
     }
   }
 
+  /*Se cambia al año que seleccionamos la lista*/
   selectYear() {
     if (this.yearSelected !== null) {
       this.teamService.getTeam(this.yearSelected).subscribe((res) => {
@@ -38,7 +39,7 @@ export class TeamListComponent implements OnInit {
     }
   }
 
-  /**Muestra los equipos del año seleccionado */
+  /**Muestra las imagenes de los equipos */
   showImgTeam(team: Team) {
     let nick = team.fullName.substring(3, -1).toUpperCase();
     return `${environment.API_IMG_TEAM_URL}/${nick}_logo.svg`;
