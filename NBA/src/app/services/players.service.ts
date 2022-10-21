@@ -16,8 +16,8 @@ export class PlayersService {
     );
   }
 
-  getPlayerInfo(year: number, id: string): Observable<Player> {
-    return this.http.get<Player>(
+  getPlayerInfo(year: number, id: string): Observable<PlayerInfoReponse> {
+    return this.http.get<PlayerInfoReponse>(
       `https://data.nba.net/data/10s/prod/v1/${year}/players/${id}_profile.json`
     );
   }

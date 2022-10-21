@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { CareerSummary } from 'src/app/interfaces/playerInfo.interface';
 import { Player } from 'src/app/interfaces/playersList.interface';
+import { Team } from 'src/app/interfaces/teams-interface';
 import { PlayersService } from 'src/app/services/players.service';
+import { TeamsService } from 'src/app/services/teams.service';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -14,9 +17,18 @@ export class PlayerInfoComponent implements OnInit {
   year: number = 0;
   id: string = '';
   playerList: Player[] = [];
+  listTeam: Team[] = [];
+  hiden = false;
+
+  /**
+   * Array de la carrera de este señor
+   */
+  stats: CareerSummary = {} as CareerSummary;
+
   constructor(
     private route: ActivatedRoute,
-    private playerService: PlayersService
+    private playerService: PlayersService,
+    private teamService: TeamsService
   ) {}
 
   ngOnInit() {
@@ -24,6 +36,7 @@ export class PlayerInfoComponent implements OnInit {
       this.year = res['year'];
       this.id = res['id'];
       this.savePlayer();
+      this.mostrarInformacion();
     });
   }
 
@@ -40,5 +53,15 @@ export class PlayerInfoComponent implements OnInit {
 
   showImg(player: Player) {
     return `${environment.API_IMG_PLAYER_URL}/${player.personId}.png`;
+  }
+
+  visibilityOf() {
+    this.hiden = !this.hiden;
+  }
+
+  mostrarInformacion() {
+    this.playerService.getPlayerInfo(this.year, this.id).subscribe((res) => {
+      this.stats = res.league.standard.stats.careerSummary;
+    });
   }
 }

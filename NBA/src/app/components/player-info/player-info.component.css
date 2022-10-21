@@ -1,6 +1,5 @@
 .example-card {
-  max-width: 400px;
-  background-color: rgba(215, 220, 250, 0.685);
+  width: 20%;
 }
 
 .example-header-image {
@@ -12,25 +11,34 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
 }
-.cajaImg {
+
+li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  color: white;
+}
+mat-icon {
+  vertical-align: middle;
+}
+.contenedorCard {
   width: 80%;
   margin: auto;
-}
-.container {
-  width: 85%;
-  margin: auto;
-  border-radius: 5%;
-  background-color: rgba(215, 220, 250, 0.685);
+  margin-top: 3em !important;
   display: flex;
+  flex-wrap: wrap;
+  background-color: rgba(215, 220, 250, 0.685);
 }
 
-h4 {
-  font-size: 40px;
-  font-family: fantasy;
+.informacion {
+  display: flex;
+  width: 75%;
+  margin-left: 1em;
+  background-color: brown;
 }
-.informacion{
-    display: flex;
-}
-li{
-    list-style: none;
+
+h4{
+  padding: 1em;
+  font-size: 35px;
 }
