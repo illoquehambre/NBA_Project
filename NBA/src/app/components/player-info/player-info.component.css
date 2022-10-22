@@ -1,5 +1,6 @@
 .example-card {
   width: 20%;
+  background-color: transparent;
 }
 
 .example-header-image {
@@ -35,7 +36,7 @@ mat-icon {
   display: flex;
   width: 75%;
   margin-left: 1em;
-  background-color: brown;
+  background-color: #5f9ea099		;
 }
 
 h4 {
@@ -67,4 +68,13 @@ tr td {
   font-weight: bold;
   color: #fff;
   text-align: center;
+}
+.eye{
+  position:absolute;
+}
+
+.heaven
+{
+  position:absolute;
+  margin-top: 4em;
 }

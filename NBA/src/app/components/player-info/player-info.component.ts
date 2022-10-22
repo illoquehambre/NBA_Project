@@ -20,6 +20,8 @@ export class PlayerInfoComponent implements OnInit {
   listTeam: Team[] = [];
   hiden = false;
 
+  fullNameTeam = '';
+
   /**
    * Array de la carrera de este señor
    */
@@ -37,6 +39,7 @@ export class PlayerInfoComponent implements OnInit {
       this.id = res['id'];
       this.savePlayer();
       this.showInformation();
+      this.showListTeam();
     });
   }
 
@@ -65,15 +68,24 @@ export class PlayerInfoComponent implements OnInit {
     });
   }
 
-  showNameTeam(id: string) {
+  showListTeam() {
     this.teamService.getTeam(this.year).subscribe((res) => {
       this.listTeam = res.league.standard;
-      for (let team of this.listTeam) {
-        if (id == team.teamId) {
-          return true;
-        }
-      }
-      return undefined;
     });
+  }
+
+  showNameTeam(id: string) {
+    for (let team of this.listTeam) {
+      if (id == team.teamId) {
+        this.fullNameTeam = team.fullName;
+        return true;
+      }
+    }
+    return undefined;
+  }
+
+  showImgTeam(id: string) {
+    let nick = id.substring(3, -1).toUpperCase();
+    return `${environment.API_IMG_TEAM_URL}/${nick}_logo.svg`;
   }
 }
