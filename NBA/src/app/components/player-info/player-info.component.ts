@@ -36,7 +36,7 @@ export class PlayerInfoComponent implements OnInit {
       this.year = res['year'];
       this.id = res['id'];
       this.savePlayer();
-      this.mostrarInformacion();
+      this.showInformation();
     });
   }
 
@@ -59,9 +59,21 @@ export class PlayerInfoComponent implements OnInit {
     this.hiden = !this.hiden;
   }
 
-  mostrarInformacion() {
+  showInformation() {
     this.playerService.getPlayerInfo(this.year, this.id).subscribe((res) => {
       this.stats = res.league.standard.stats.careerSummary;
+    });
+  }
+
+  showNameTeam(id: string) {
+    this.teamService.getTeam(this.year).subscribe((res) => {
+      this.listTeam = res.league.standard;
+      for (let team of this.listTeam) {
+        if (id == team.teamId) {
+          return true;
+        }
+      }
+      return undefined;
     });
   }
 }
