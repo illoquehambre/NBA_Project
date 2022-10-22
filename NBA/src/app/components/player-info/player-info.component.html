@@ -24,7 +24,14 @@
           {{ player.firstName }} <br />
           {{ player.lastName }}
         </h4>
-        <p [ngStyle]="{ 'text-align': 'center' }">{{ player.teamId }}</p>
+        <span *ngIf="showNameTeam(player.teamId)">
+          <p
+            [ngStyle]="{ 'text-align': 'center' }"
+            *ngFor="let team of listTeam"
+          >
+            {{ team.fullName }}
+          </p></span
+        >
       </div>
       <div [ngStyle]="{ width: '50%', display: 'flex', 'font-size': '20px' }">
         <div
@@ -72,6 +79,31 @@
   </mat-card>
 
   <mat-card class="contenedorCard" *ngIf="hiden">
-    <p>{{stats.assists}}</p> 
+    <table>
+      <thead>
+        <th>MPG</th>
+        <th>FGP</th>
+        <th>FTP</th>
+        <th>PPG</th>
+        <th>RPG</th>
+        <th>ASSISTS</th>
+        <th>MIN</th>
+        <th>POINTS</th>
+        <th>GamesPlayed</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{{ stats.mpg }}</td>
+          <td>{{ stats.fgp }}</td>
+          <td>{{ stats.ftp }}</td>
+          <td>{{ stats.rpg }}</td>
+          <td>{{ stats.rpg }}</td>
+          <td>{{ stats.assists }}</td>
+          <td>{{ stats.min }}</td>
+          <td>{{ stats.points }}</td>
+          <td>{{ stats.gamesPlayed }}</td>
+        </tr>
+      </tbody>
+    </table>
   </mat-card>
 </body>

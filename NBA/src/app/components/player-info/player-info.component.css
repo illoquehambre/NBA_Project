@@ -38,7 +38,33 @@ mat-icon {
   background-color: brown;
 }
 
-h4{
+h4 {
   padding: 1em;
   font-size: 35px;
+}
+
+table {
+  width: 750px;
+  border-collapse: collapse;
+  margin: 50px auto;
+}
+th {
+  background: #3498db;
+  color: white;
+  font-weight: bold;
+}
+td,
+th {
+  padding: 10px;
+  border: 1px solid #ccc;
+  text-align: left;
+  font-size: 18px;
+  text-align: center;
+
+}
+tr td {
+  background-color: #2cc16a;
+  font-weight: bold;
+  color: #fff;
+  text-align: center;
 }
