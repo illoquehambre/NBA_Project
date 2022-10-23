@@ -11,12 +11,12 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./team-info.component.css']
 })
 export class TeamInfoComponent implements OnInit {
-  playerList: Player[] = [];
   listTeam: Team[] = [];
   year = new Date().getFullYear();
   id: String = {} as String;
   listYear: number[] = [];
   teamSelected: Team = {} as Team;
+  listPlayer: Player[]= [];
 
 
   constructor(
@@ -28,7 +28,8 @@ export class TeamInfoComponent implements OnInit {
    
     this.getParamsFromUrl();
     this.showTeam();
-    this.showPlayers();    
+    this.showPlayers(); 
+
     
 
   }
@@ -43,16 +44,17 @@ export class TeamInfoComponent implements OnInit {
   showTeam() {
     this.teamService.getTeam(this.year).subscribe((res) => {
       this.listTeam = res.league.standard;
-
+      debugger
       for (let team of this.listTeam) {
         if (this.id == team.teamId) {
           this.teamSelected = team;
-        }
-        this.teamService.getPlayerOfTeam(this.year, this.teamSelected.fullName).subscribe((res) => {
-          this.playerList = res.league.standard;
-        });
+        }      
 
       }
+      debugger
+      this.teamService.getPlayerOfTeam(this.year, this.teamSelected.urlName).subscribe((res) => {
+        this.listPlayer = res.league.standard;
+      });
       
 
     });
@@ -62,14 +64,22 @@ export class TeamInfoComponent implements OnInit {
     }
   }
   showPlayers() {
-    this.teamService.getTeam(this.year).subscribe((res) => {
-      this.listTeam = res.league.standard;
+    debugger
+    this.teamService.getPlayerOfTeam(this.year, this.teamSelected.urlName).subscribe((res) => {
+      this.listPlayer = res.league.standard;
      
     });
     
   }
-  showImgTeam(team: Team) {
-    let nick = team.fullName.substring(3, -1).toUpperCase();
+
+  showMatchs() {
+    this.teamService.getTeam(this.year).subscribe((res) => {
+      this.listTeam = res.league.standard;     
+    });
+    
+  }
+  showImgTeam() {
+    let nick = this.teamSelected.fullName.toUpperCase().substring(3, 0);
     return `${environment.API_IMG_TEAM_URL}/${nick}_logo.svg`;
   }
 }

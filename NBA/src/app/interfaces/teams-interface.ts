@@ -31,7 +31,7 @@ export interface Internal {
   pubDateTime: string;
   igorPath: string;
   xslt: string;
-  xsltForceRecompile: string;
+  xsltForceRecompile: string;  
   xsltInCache: string;
   xsltCompileTimeMillis: string;
   xsltTransformTimeMillis: string;

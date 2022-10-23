@@ -1,0 +1,14 @@
+body {
+    background-image: url("https://www.wallpapertip.com/wmimgs/4-48639_nba-wallpapers-facts-about-nba-free-chrome-extension.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.Team {
+    width: 80%;
+    margin: auto;
+    margin-top: 3em !important;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: rgba(215, 220, 250, 0.685);
+}

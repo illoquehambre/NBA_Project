@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { PlayerResponse } from '../interfaces/playersList.interface';
+import { PlayerResponse, Team } from '../interfaces/playersList.interface';
 import { League, TeamResponse } from '../interfaces/teams-interface';
 
 @Injectable({
@@ -29,9 +29,13 @@ export class TeamsService {
   }
 
   getPlayerOfTeam(year: number, teamName: String): Observable<PlayerResponse> {
+    debugger
     return this.http.get<PlayerResponse>(
       `${environment.API_BASE_URL}/${year}/teams/${teamName}/roster.json`
     );
+  }
+  getMatchs(team: Team){
+
   }
 
 }
