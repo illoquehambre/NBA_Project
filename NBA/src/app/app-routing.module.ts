@@ -12,7 +12,7 @@ const routes: Routes = [
   { path: 'player-list', component: PlayerListComponent },
   { path: 'player-info/:year/:id', component: PlayerInfoComponent },
   { path: 'team-list', component: TeamListComponent },
-  { path: 'team-info', component: TeamInfoComponent },
+  { path: 'team-info/:id/:year', component: TeamInfoComponent },
   { path: '', redirectTo: '/index', pathMatch: 'full' },
 ];
 

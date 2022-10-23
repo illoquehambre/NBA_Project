@@ -13,7 +13,7 @@
     </h3>
     <mat-form-field>
       <mat-label>Select season</mat-label>
-      <mat-select [(value)]="yearSelected" (valueChange)="selectYear()">
+      <mat-select [(value)]="yearSelected"(valueChange)="selectYear()"> 
         <mat-option
           *ngFor="let years of listYear"
           [value]="years"
@@ -32,7 +32,11 @@
   >
     <li fxFlex="25" fxLayoutAlign="center center" *ngFor="let team of listTeam">
       <!--En el div de abajo es donde tienes que poner el router link para que te lleve a la info del equipo-->
-      <div [ngStyle]="{ 'flex-basis': 'min-content' }" class="containerP">
+      <div
+        [ngStyle]="{ 'flex-basis': 'min-content' }"
+        class="containerP"
+        [routerLink]="['/team-info', team.teamId, this.yearSelected]"
+      >
         <img
           fxLayoutAlign="center center"
           [src]="showImgTeam(team)"

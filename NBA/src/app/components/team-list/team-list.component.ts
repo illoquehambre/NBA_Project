@@ -25,9 +25,9 @@ export class TeamListComponent implements OnInit {
       this.listTeam = res.league.standard;
     });
 
-    for (let i = 0; 2012 + i <= this.year; i++) {
-      this.listYear[i] = this.year - i;
-    }
+      for (let i = 0; 2012 + i <= this.year; i++) {
+        this.listYear[i] = this.year - i;
+      }
   }
 
   /*Se cambia al año que seleccionamos la lista*/
