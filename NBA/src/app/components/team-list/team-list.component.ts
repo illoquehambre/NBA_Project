@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { League, Team } from 'src/app/interfaces/teams-interface';
+import { Team } from 'src/app/interfaces/teams-interface';
 import { TeamsService } from 'src/app/services/teams.service';
 import { environment } from 'src/environments/environment';
 @Component({
@@ -11,7 +11,7 @@ export class TeamListComponent implements OnInit {
   listTeam: Team[] = [];
   year = new Date().getFullYear();
   listYear: number[] = [];
-  yearSelected: number = {} as number;
+  yearSelected: number = this.year;
 
   constructor(private teamService: TeamsService) {}
 
@@ -30,6 +30,7 @@ export class TeamListComponent implements OnInit {
     }
   }
 
+  /*Se cambia al año que seleccionamos la lista*/
   selectYear() {
     if (this.yearSelected !== null) {
       this.teamService.getTeam(this.yearSelected).subscribe((res) => {
@@ -38,7 +39,7 @@ export class TeamListComponent implements OnInit {
     }
   }
 
-  /**Muestra los equipos del año seleccionado */
+  /**Muestra las imagenes de los equipos */
   showImgTeam(team: Team) {
     let nick = team.fullName.substring(3, -1).toUpperCase();
     return `${environment.API_IMG_TEAM_URL}/${nick}_logo.svg`;
