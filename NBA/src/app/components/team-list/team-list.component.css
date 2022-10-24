@@ -108,3 +108,13 @@ footer {
 .containerSearch {
   margin-bottom: 2em;
 }
+.moreInfo {
+  visibility: hidden;
+  font-size: 8px;
+  background: brown;
+  border-radius: 22px;
+}
+
+.containerP:hover .moreInfo {
+  visibility: visible;
+}

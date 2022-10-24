@@ -1,3 +1,9 @@
+@import url('http://fonts.cdnfonts.com/css/model');
+@import url('http://fonts.cdnfonts.com/css/kwixter');
+@import url('http://fonts.cdnfonts.com/css/homerock');
+
+
+
 .example-card {
   width: 20%;
   background-color: transparent;
@@ -49,6 +55,7 @@ mat-icon {
 h4 {
   padding: 1em;
   font-size: 35px;
+  font-family: 'Kwixter', sans-serif;
 }
 
 table {
