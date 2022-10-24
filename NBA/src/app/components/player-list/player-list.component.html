@@ -23,6 +23,16 @@
       </mat-select>
     </mat-form-field>
   </div>
+  <div fxLayout="row" fxLayoutAlign="center center" class="containerSearch">
+    <mat-icon  id="search"> search </mat-icon>
+    <input
+      type="search"
+      placeholder="Grayson Allen"
+      id="Buscador"
+      type="text"
+      [(ngModel)]="shearchText"
+    />
+  </div>
   <!--
   <div>
     <span *ngFor="let in of counter(); let i = index"
@@ -40,7 +50,7 @@
     <li
       fxFlex="25"
       fxLayoutAlign="center center"
-      *ngFor="let player of playerList"
+      *ngFor="let player of playerList | filter: shearchText"
     >
       <!--En el div de abajo es donde tienes que poner el router link para que te lleve a la info del equipo-->
       <div

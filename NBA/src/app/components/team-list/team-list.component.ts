@@ -10,6 +10,7 @@ import { environment } from 'src/environments/environment';
 export class TeamListComponent implements OnInit {
   listTeam: Team[] = [];
   year = new Date().getFullYear();
+  shearchText: any;
   listYear: number[] = [];
   yearSelected: number = this.year;
 
@@ -25,9 +26,9 @@ export class TeamListComponent implements OnInit {
       this.listTeam = res.league.standard;
     });
 
-      for (let i = 0; 2012 + i <= this.year; i++) {
-        this.listYear[i] = this.year - i;
-      }
+    for (let i = 0; 2012 + i <= this.year; i++) {
+      this.listYear[i] = this.year - i;
+    }
   }
 
   /*Se cambia al año que seleccionamos la lista*/

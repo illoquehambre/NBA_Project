@@ -14,6 +14,8 @@ import { PlayerListComponent } from './components/player-list/player-list.compon
 import { PlayerInfoComponent } from './components/player-info/player-info.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { PipePipe } from './pipes/pipe.pipe';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,6 +34,7 @@ import { PipePipe } from './pipes/pipe.pipe';
     BrowserAnimationsModule,
     MaterialImportsModule,
     FormsModule,
+    Ng2SearchPipeModule
   ],
   providers: [],
   bootstrap: [AppComponent],

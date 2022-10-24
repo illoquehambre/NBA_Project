@@ -6,7 +6,7 @@ import { Team } from '../interfaces/teams-interface';
   name: 'show-img',
 })
 export class PipePipe implements PipeTransform {
-  /**Muestra las imagenes de los equipos del año seleccionado */
+  /**Muestra las imagenes de los equipos del año seleccionado **/
 
   transform(team: Team): string {
     let nick = team.fullName.substring(3, -1).toUpperCase();
