@@ -52,7 +52,7 @@ export class TeamInfoComponent implements OnInit {
       this.listTeam = res.league.standard;
       
       for (let team of this.listTeam) {
-        if (this.id == team.teamId) {
+        if (this.id == team.teamId)  {
           this.teamSelected = team;
         }      
        
