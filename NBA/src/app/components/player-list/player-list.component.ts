@@ -10,6 +10,7 @@ import { environment } from 'src/environments/environment';
 })
 export class PlayerListComponent implements OnInit {
   currentYear: number = new Date().getFullYear();
+  shearchText : any;
   playerList: Player[] = [];
   yearList: number[] = [];
   yearSelected: number = this.currentYear;
