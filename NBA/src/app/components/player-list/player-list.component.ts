@@ -13,6 +13,7 @@ export class PlayerListComponent implements OnInit {
   playerList: Player[] = [];
   yearList: number[] = [];
   yearSelected: number = this.currentYear;
+  
   constructor(private playersService: PlayersService) {}
 
   ngOnInit(): void {
