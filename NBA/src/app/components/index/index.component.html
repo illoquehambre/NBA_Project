@@ -1,1 +1,29 @@
-<p>index works!</p>
+<body>
+    <div id="logoTittle">
+        <img
+          [ngStyle]="{ width: '190px', padding: '1em' }"
+          src="https://png.monster/wp-content/uploads/2022/02/png.monster-587.png"
+        />
+      </div>
+    <div class="cards"  fxLayout="row" fxLayoutAlign="space-evenly center" >
+        <mat-card class="player" routerLink="/player-list" >
+            <mat-card-title-group fxLayout="row" fxLayoutAlign="space-evenly center">
+              <mat-card-title>Players</mat-card-title>
+              
+            </mat-card-title-group >
+            <mat-card-content>
+                <img mat-card-image src="https://wallpapercave.com/dwp1x/wp8439938.jpg" >
+            </mat-card-content>
+          </mat-card>
+          <mat-card class="example-card" routerLink="/team-list" >
+            <mat-card-title-group fxLayoutAlign="space-evenly center">
+              <mat-card-title>Teams</mat-card-title>              
+             
+            </mat-card-title-group>
+            <mat-card-content>
+                <img mat-card-image src="https://wallpapercave.com/dwp1x/wp6475714.jpg" >
+            </mat-card-content>
+          </mat-card>
+                    
+    </div>
+</body>

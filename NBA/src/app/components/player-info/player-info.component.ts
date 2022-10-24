@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CareerSummary } from 'src/app/interfaces/playerInfo.interface';
 import { Player } from 'src/app/interfaces/playersList.interface';
-import { Team } from 'src/app/interfaces/teams-interface';
+import { Team } from 'src/app/interfaces/teams.interface';
 import { PlayersService } from 'src/app/services/players.service';
 import { TeamsService } from 'src/app/services/teams.service';
 import { environment } from 'src/environments/environment';

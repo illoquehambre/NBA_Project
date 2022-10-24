@@ -1,0 +1,40 @@
+body {
+    background-image: url("https://www.wallpapertip.com/wmimgs/4-48639_nba-wallpapers-facts-about-nba-free-chrome-extension.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    height: auto;
+}
+
+.Team {
+    width: 80%;
+    margin: auto;
+    margin-top: 3em !important;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: rgba(215, 220, 250, 0.685);
+}
+.playerList{
+    width: 80%;
+    margin: auto;
+    margin-top: 0.5pt;
+    border-radius: 2%;
+    background-color: rgba(219, 47, 35, 0.8);
+}
+.schedule{
+    width: 40%;
+    margin: auto;
+    margin-top: 0.5pt;
+    background-color: rgba(91, 241, 116, 0.8);
+}
+mat-card-content{
+    font-size: 20pt;
+    font-weight: bold;
+    
+}
+mat-card-content>img{
+    width: 10%;
+}
+table{
+    border: solid, black, 2px;
+}
