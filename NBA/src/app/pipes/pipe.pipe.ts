@@ -1,6 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { Team } from '../interfaces/teams-interface';
+import { Team } from '../interfaces/teams.interface';
 
 @Pipe({
   name: 'show-img',
