@@ -15,16 +15,18 @@ import { environment } from 'src/environments/environment';
 })
 export class TeamInfoComponent implements OnInit {
   listTeam: Team[] = [];
+  actualYear= new Date().getFullYear();
   year = new Date().getFullYear();
   id: String = {} as String;
   listYear: number[] = [];
   teamSelected: Team = {} as Team;
-  listPlayer: Player[]= [];
-  listTeamPlayer: PlayerElement[]=[];
-  teamRoster: Player[]=[];
-  matchList: Match[]=[];
+  listPlayer: Player[] = [];
+  listTeamPlayer: PlayerElement[] = [];
+  teamRoster: Player[] = [];
+  matchList: Match[] = [];
 
-  listScore : StandardHTeam [] = [];
+
+  listScore: StandardHTeam[] = [];
 
   constructor(
     private teamService: TeamsService,
@@ -33,10 +35,10 @@ export class TeamInfoComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-   
+
     this.getParamsFromUrl();
     this.showTeam();
-    this.showPlayers();    
+    this.showPlayers();
 
   }
 
@@ -50,86 +52,84 @@ export class TeamInfoComponent implements OnInit {
   showTeam() {
     this.teamService.getTeam(this.year).subscribe((res) => {
       this.listTeam = res.league.standard;
-      
+
       for (let team of this.listTeam) {
-        if (this.id == team.teamId)  {
+        if (this.id == team.teamId) {
           this.teamSelected = team;
-        }      
-       
+        }
+
       }
-     /* 
-      debugger
-      this.teamService.getPlayerOfTeam(this.year, this.teamSelected.urlName).subscribe((res) => {
-        this.listTeamPlayer = res.league.standard.players;
-      });
-      */
+      /* 
+       
+       this.teamService.getPlayerOfTeam(this.year, this.teamSelected.urlName).subscribe((res) => {
+         this.listTeamPlayer = res.league.standard.players;
+       });
+       */
 
     });
 
-    for (let i = 0; 2012 + i <= this.year; i++) {
-      this.listYear[i] = this.year - i;
+    for (let i = 0; 2012 + i <= this.actualYear; i++) {
+      this.listYear[i] = this.actualYear - i;
     }
   }
-  showTeamById(id: String){
-    let teamAux: Team ={} as Team;
-    for(let team of this.listTeam){
-      
-      if(team.teamId==id){
-        teamAux=team
+  showTeamById(id: String) {
+    let teamAux: Team = {} as Team;
+    for (let team of this.listTeam) {
+
+      if (team.teamId == id) {
+        teamAux = team
       }
-      
+
     }
     return teamAux
   }
 
-  showPlayers(){
+  showPlayers() {
     this.playerService.getPlayerList(this.year).subscribe((res) => {
-      this.listPlayer = res.league.standard;    
-      this.showPlayersOfTeam(); 
+      this.listPlayer = res.league.standard;
+      this.showPlayersOfTeam();
       this.showMatchs();
     });
   }
   showPlayersOfTeam() {
-    
+
     this.teamService.getPlayerOfTeam(this.year, this.teamSelected.urlName).subscribe((res) => {
-      this.listTeamPlayer = res.league.standard.players;   
-      
+      this.listTeamPlayer = res.league.standard.players;
+
       for (let player of this.listPlayer) {
         for (let teamplayer of this.listTeamPlayer) {
           if (player.personId == teamplayer.personId) {
             this.teamRoster.push(player);
-          }    
+          }
         }
       }
     });
-    
-      
-    
+
+
+
   }
 
   showMatchs() {
-    debugger
+
     this.teamService.getMatchs(this.year, this.teamSelected.urlName).subscribe((res) => {
-      this.matchList = res.league.standard;     
+      this.matchList = res.league.standard;
     });
-    
+
   }
   showImgTeam() {
     let nick = this.teamSelected.fullName.toUpperCase().substring(3, 0);
     return `${environment.API_IMG_TEAM_URL}/${nick}_logo.svg`;
   }
-  showImgTeamById(id: String){    
+  showImgTeamById(id: String) {
     let nick = this.showTeamById(id).fullName.toUpperCase().substring(3, 0);
     return `${environment.API_IMG_TEAM_URL}/${nick}_logo.svg`;
   }
   showImgPlayer(player: Player) {
     return `${environment.API_IMG_PLAYER_URL}/${player.personId}.png`;
   }
-  checkWiner(match: Match){
-    if(match.vTeam.score>match.hTeam.score){
-      return true
-    }else{
-      return false
-    }
+  convertStringToNumber(input: string) {
+    var numeric = Number(input);
+    return numeric;
   }
+  
 }
