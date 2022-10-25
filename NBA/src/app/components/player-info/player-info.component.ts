@@ -22,9 +22,6 @@ export class PlayerInfoComponent implements OnInit {
 
   fullNameTeam = '';
 
-  /**
-   * Array de la carrera de este señor
-   */
   stats: CareerSummary = {} as CareerSummary;
 
   constructor(

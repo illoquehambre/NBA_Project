@@ -1,8 +1,7 @@
-@import url('http://fonts.cdnfonts.com/css/model');
-@import url('http://fonts.cdnfonts.com/css/kwixter');
-@import url('http://fonts.cdnfonts.com/css/homerock');
-
-
+@import url("http://fonts.cdnfonts.com/css/model");
+@import url("http://fonts.cdnfonts.com/css/kwixter");
+@import url("http://fonts.cdnfonts.com/css/homerock");
+@import url("http://fonts.cdnfonts.com/css/viva-persib");
 
 .example-card {
   width: 20%;
@@ -24,6 +23,8 @@ h3 {
 
 li {
   list-style: none;
+  font-family: "Viva Persib", sans-serif;
+  font-weight: 800;
 }
 a {
   text-decoration: none;
@@ -55,7 +56,7 @@ mat-icon {
 h4 {
   padding: 1em;
   font-size: 35px;
-  font-family: 'Kwixter', sans-serif;
+  font-family: "Kwixter", sans-serif;
 }
 
 table {
