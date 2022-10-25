@@ -1,24 +1,38 @@
 <body>
-  <p>{{ teamSelected.urlName }}</p>
-  <div [ngStyle]="{ 'text-align': 'center' }" class="cajaImg">
-    <img
-      [src]="showImgTeam()"
-      [ngStyle]="{ width: '10%' }"
-      onerror="this.onerror = null; this.src='https://pbs.twimg.com/profile_images/991091843558494209/ehalD2tN_400x400.jpg'"
-    />
+  <mat-card class="title" fxLayout="row" fxLayoutAlign="start center">
+    <div class="cajaImg">
+
+      <img [src]="showImgTeam()" [ngStyle]="{ width: '50%' }"
+        onerror="this.onerror = null; this.src='https://pbs.twimg.com/profile_images/991091843558494209/ehalD2tN_400x400.jpg'" />
+    </div>
+    <div>
+      <h1>{{teamSelected.fullName}}</h1>
+      <h2>City: {{teamSelected.city}}</h2>
+    </div>
+
+  </mat-card>
+  <div class="showYears">
+    <h3 [ngStyle]="{ width: '90%', margin: 'auto ' }">
+      <a routerLink="/index">
+        <mat-icon>first_page </mat-icon>INDEX
+      </a>/<a routerLink="/team-list">
+        TEAM LIST <mat-icon> sports_basketball </mat-icon></a>
+      / {{ teamSelected.fullName }} <mat-icon>team</mat-icon>
+    </h3>
+    <mat-form-field>
+      <mat-label>Select season</mat-label>
+      <mat-select [(value)]="this.year" (valueChange)="reloadPage()">
+        <mat-option *ngFor="let years of listYear" [value]="years" [ngStyle]="{ color: 'brown' }" [routerLink]="['/team-info',this.id, years]">{{ years }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
   </div>
-  <h3 [ngStyle]="{ width: '90%', margin: 'auto ' }">
-    <a routerLink="/index"> <mat-icon>first_page </mat-icon>INDEX </a>/<a
-      routerLink="/team-list"
-    >
-      TEAM LIST <mat-icon> sports_basketball </mat-icon></a
-    >
-    / {{ teamSelected.fullName }} <mat-icon>team</mat-icon>
-  </h3>
   <mat-card class="Team">
     <mat-card-title-group>
-      <mat-card-title>{{ teamSelected.altCityName }}</mat-card-title>
-      <mat-card-content fxLayout="row" fxLayoutAlign="space-evenly start">
+      <mat-card-title></mat-card-title>
+      <mat-card-content fxLayout="row" fxLayoutAlign="space-between start">
+
+
         <mat-card class="schedule">
           <mat-card-title-group> </mat-card-title-group>
           <mat-card-content>
@@ -27,43 +41,46 @@
                 <tr>
                   <th>Home Team</th>
                   <th>Score</th>
-                  <th></th>
                   <th>Score</th>
                   <th>Visitant Team</th>
                 </tr>
               </thead>
               <tbody>
                 <tr *ngFor="let match of matchList">
-                  <td fxLayoutAlign="center">
-                    <img
-                      [src]="showImgTeamById(match.hTeam.teamId)"
-                      [ngStyle]="{ width: '30%' }"
-                      onerror="this.onerror = null; this.src='https://pbs.twimg.com/profile_images/991091843558494209/ehalD2tN_400x400.jpg'"
-                    />
+                  <td fxLayoutAlign="center"><img 
+                      [src]="showImgTeamById(match.hTeam.teamId)" [ngStyle]="{ width: '30%' }"
+                      onerror="this.onerror = null; this.src='https://pbs.twimg.com/profile_images/991091843558494209/ehalD2tN_400x400.jpg'" />
                   </td>
 
-                  <td>{{ match.vTeam.score }}</td>
-                  <td></td>
-                  <td>{{ match.vTeam.score }}</td>
-                  <td fxLayoutAlign="center">
-                    <img
-                      [src]="showImgTeamById(match.vTeam.teamId)"
-                      [ngStyle]="{ width: '30%' }"
-                      onerror="this.onerror = null; this.src='https://pbs.twimg.com/profile_images/991091843558494209/ehalD2tN_400x400.jpg'"
-                    />
+                  <td
+                    [ngStyle]="{ color: this.convertStringToNumber(match.hTeam.score) > this.convertStringToNumber(match.vTeam.score) ? 'green' : this.convertStringToNumber(match.hTeam.score) < this.convertStringToNumber(match.vTeam.score) ? 'red' : 'yellow'  }">
+                    {{match.hTeam.score}}</td>
+
+                  <td
+                    [ngStyle]="{ color: this.convertStringToNumber(match.hTeam.score) < this.convertStringToNumber(match.vTeam.score) ? 'green' : this.convertStringToNumber(match.hTeam.score) > this.convertStringToNumber(match.vTeam.score) ? 'red' : 'yellow'  }">
+                    {{match.vTeam.score}}</td>
+                  <td fxLayoutAlign="center"> <img 
+                      [src]="showImgTeamById(match.vTeam.teamId)" [ngStyle]="{ width: '30%' }"
+                      onerror="this.onerror = null; this.src='https://pbs.twimg.com/profile_images/991091843558494209/ehalD2tN_400x400.jpg'" />
                   </td>
+
                 </tr>
               </tbody>
+
             </table>
+
+
+
           </mat-card-content>
         </mat-card>
         <div>
-          <mat-card class="playerList" *ngFor="let player of teamRoster">
+          <mat-card class="playerList" *ngFor="let player of teamRoster"
+            [routerLink]="['/player-info', this.year, player.personId]">
             <mat-card-title-group> </mat-card-title-group>
             <mat-card-content fxLayout="row" fxLayoutAlign="start center">
               <img fxFlex="20" [src]="showImgPlayer(player)" class="heaven" />
               <div fxFlex="80" fxLayoutAlign="center">
-                {{ player.firstName }}{{ player.lastName }}
+                <p>{{ player.firstName }}    {{ player.lastName }}</p>
               </div>
             </mat-card-content>
           </mat-card>
@@ -71,4 +88,8 @@
       </mat-card-content>
     </mat-card-title-group>
   </mat-card>
+  <mat-progress-bar mode="determinate" value="100"></mat-progress-bar>
+  <footer>
+    <p>© 2022 NBA</p>
+  </footer>
 </body>
