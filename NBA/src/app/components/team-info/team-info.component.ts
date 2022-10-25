@@ -133,6 +133,7 @@ export class TeamInfoComponent implements OnInit {
   }
   reloadPage() {
     this.ngOnInit();
-    window.location.reload();
+    setTimeout(window.location.reload, 10);
+    
   }
 }
