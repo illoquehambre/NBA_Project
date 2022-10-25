@@ -13,7 +13,10 @@ footer {
   background-color: #4a4c4f;
   color: #fff;
 }
-
+@font-face {
+  font-family: "nbaJazz";
+  src: url(../../fonts/NBAJAZZ_.TTF);
+}
 .Team {
   width: 80%;
   margin: auto;
@@ -41,10 +44,16 @@ tr>td{
   text-align: center;
 
 }
-td>img:hover{
-  transform: scale(1.1);
+td>mat-icon{
+  visibility: hidden;
 }
-
+tr:hover>td>mat-icon{
+  visibility: visible;
+}
+.center{
+  text-align: center;
+  font-family: "nbaJazz", Impact, 'Arial Narrow Bold', sans-serif ;
+}
 
 .schedule {
   width: 40%;

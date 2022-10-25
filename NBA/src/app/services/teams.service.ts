@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { PlayerResponse, Team } from '../interfaces/playersList.interface';
+import { CoachResponse } from '../interfaces/teamCoach.interface';
 import { TeamInfoResponse } from '../interfaces/teamPlayers.interface';
 import { League, TeamResponse } from '../interfaces/teams.interface';
 import { TeamScheduleResponse } from '../interfaces/teamSchudele.interface';
@@ -34,6 +35,11 @@ export class TeamsService {
   getMatchs(year: number, teamName: String): Observable<TeamScheduleResponse>{
     return this.http.get<TeamScheduleResponse>(
       `${environment.API_BASE_URL}/${year}/teams/${teamName}/schedule.json`
+    );
+  }
+  getCoaches(year: number): Observable<CoachResponse>{
+    return this.http.get<CoachResponse>(
+      `${environment.API_BASE_URL}/${year}/coaches.json`
     );
   }
 
