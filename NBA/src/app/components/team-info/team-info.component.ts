@@ -15,7 +15,7 @@ import { environment } from 'src/environments/environment';
 })
 export class TeamInfoComponent implements OnInit {
   listTeam: Team[] = [];
-  actualYear= new Date().getFullYear();
+  actualYear = new Date().getFullYear();
   year = new Date().getFullYear();
   id: String = {} as String;
   listYear: number[] = [];
@@ -131,5 +131,8 @@ export class TeamInfoComponent implements OnInit {
     var numeric = Number(input);
     return numeric;
   }
-  
+  reloadPage() {
+    this.ngOnInit();
+    window.location.reload();
+  }
 }
