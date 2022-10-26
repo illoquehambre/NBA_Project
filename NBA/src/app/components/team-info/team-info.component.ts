@@ -38,7 +38,7 @@ export class TeamInfoComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-
+    this.teamRoster=[]
     this.getParamsFromUrl();
     this.showTeam();
     this.showPlayers();
@@ -98,7 +98,7 @@ export class TeamInfoComponent implements OnInit {
 
     this.teamService.getPlayerOfTeam(this.year, this.teamSelected.urlName).subscribe((res) => {
       this.listTeamPlayer = res.league.standard.players;
-
+      
       for (let player of this.listPlayer) {
         for (let teamplayer of this.listTeamPlayer) {
           if (player.personId == teamplayer.personId) {
@@ -149,9 +149,5 @@ export class TeamInfoComponent implements OnInit {
     var numeric = Number(input);
     return numeric;
   }
-  reloadPage() {
-    this.ngOnInit();
-    setTimeout(window.location.reload, 10);
-    
-  }
+  
 }

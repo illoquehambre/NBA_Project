@@ -21,7 +21,7 @@
     </h3>
     <mat-form-field>
       <mat-label>Select season</mat-label>
-      <mat-select [(value)]="this.year" (valueChange)="reloadPage()">
+      <mat-select [(value)]="this.year" (valueChange)="ngOnInit()">
         <mat-option *ngFor="let years of listYear" [value]="years" [ngStyle]="{ color: 'brown' }" [routerLink]="['/team-info',this.id, years]">{{ years }}
         </mat-option>
       </mat-select>
