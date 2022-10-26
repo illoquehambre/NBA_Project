@@ -16,6 +16,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { PipePipe } from './pipes/pipe.pipe';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { OneTeamComponent } from './components/one-team/one-team.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
     PlayerInfoComponent,
     PipePipe,
     PageNotFoundComponent,
+    OneTeamComponent,
   ],
   imports: [
     BrowserModule,
