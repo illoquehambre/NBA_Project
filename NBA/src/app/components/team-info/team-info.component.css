@@ -1,40 +1,129 @@
 body {
-    background-image: url("https://www.wallpapertip.com/wmimgs/4-48639_nba-wallpapers-facts-about-nba-free-chrome-extension.jpg");
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-    height: auto;
+  background-image: url("https://wallpapercave.com/wp/wp4923801.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  height: auto;
 }
 
+footer {
+  display: flex;
+  justify-content: center;
+  padding: 5px;
+  background-color: #4a4c4f;
+  color: #fff;
+}
+@font-face {
+  font-family: "nbaJazz";
+  src: url(../../fonts/NBAJAZZ_.TTF);
+}
 .Team {
-    width: 80%;
-    margin: auto;
-    margin-top: 3em !important;
-    display: flex;
-    flex-wrap: wrap;
-    background-color: rgba(215, 220, 250, 0.685);
+  width: 80%;
+  margin: auto;
+  margin-top: 3em !important;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: rgba(215, 220, 250, 0.685);
 }
-.playerList{
-    width: 80%;
-    margin: auto;
-    margin-top: 0.5pt;
-    border-radius: 2%;
-    background-color: rgba(219, 47, 35, 0.8);
+
+.playerList {
+  width: 80%;
+  margin: auto;
+  margin-top: 0.5pt;
+  border-radius: 2%;
+  background-color: rgba(219, 47, 35, 0.8);
+  transition: 0.2s all;
 }
-.schedule{
-    width: 40%;
-    margin: auto;
-    margin-top: 0.5pt;
-    background-color: rgba(91, 241, 116, 0.8);
+
+.playerList:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 6px 0px rgb(61, 48, 48);
 }
-mat-card-content{
-    font-size: 20pt;
-    font-weight: bold;
-    
+
+tr>td{
+  text-align: center;
+
 }
-mat-card-content>img{
-    width: 10%;
+td>mat-icon{
+  visibility: hidden;
 }
-table{
-    border: solid, black, 2px;
+tr:hover>td>mat-icon{
+  visibility: visible;
+}
+.center{
+  text-align: center;
+  font-family: "nbaJazz", Impact, 'Arial Narrow Bold', sans-serif ;
+}
+
+.schedule {
+  width: 40%;
+  margin: auto;
+  margin-top: 0.5pt;
+  background-color: rgba(164, 165, 165, 0.55);
+}
+
+mat-card-content {
+  font-size: 20pt;
+  font-weight: bold;
+
+}
+
+mat-card-content>img {
+  width: 10%;
+}
+
+h3 {
+  color: white;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+a:hover {
+  background-color: teal;
+  border-radius: 12px;
+}
+
+mat-icon {
+  vertical-align: middle;
+}
+
+.title {
+  background-color: rgba(164, 165, 165, 0.55);
+  margin-bottom: 5%;
+}
+
+.title>div>h1 {
+  font-size: 40pt;
+}
+
+.title>div>h2 {
+  font-size: 25pt;
+}
+mat-form-field {
+  margin-bottom: 2em;
+  margin-left: 2em;
+}
+mat-label,
+mat-select {
+  color: rgb(249, 249, 249);
+}
+.mat-select-arrow {
+  color: white;
+}
+.mat-select-value {
+  color: white !important;
+}
+.showYears {
+  width: 95%;
+  margin: auto;
+  margin-top: -3em;
+  display: flex;
+  justify-content: start;
 }

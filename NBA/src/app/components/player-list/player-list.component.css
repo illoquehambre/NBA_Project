@@ -1,3 +1,6 @@
+@import url("http://fonts.cdnfonts.com/css/lokananta");
+@import url("http://fonts.cdnfonts.com/css/axehandel");
+
 li {
   list-style: none;
 }
@@ -14,6 +17,7 @@ p {
   color: whitesmoke;
   text-align: center;
   font-size: 14px;
+  font-family: "lokananta", sans-serif;
 }
 #logoTittle {
   text-align: center;
@@ -69,6 +73,7 @@ mat-select {
   opacity: 7;
   box-shadow: 0 8px 20px 0px rgba(0, 0, 0, 0.125);
 }
+
 a {
   text-decoration: none;
   color: white;
@@ -98,17 +103,25 @@ footer {
   outline: none;
   border-radius: 0px 12px 12px 0px;
 }
-#search{
+#search {
   background-color: rgba(255, 255, 255, 0.463);
   padding: 6px 6px 5px 25px;
   border: transparent;
   border-radius: 12px 0px 0px 12px;
-
-
-
-
 }
 
-.containerSearch{
+.containerSearch {
   margin-bottom: 2em;
 }
+
+.moreInfo {
+  visibility: hidden;
+  font-size: 8px;
+  background: brown;
+  border-radius: 22px;
+}
+
+.containerP:hover .moreInfo {
+  visibility: visible;
+}
+/***********************************************/

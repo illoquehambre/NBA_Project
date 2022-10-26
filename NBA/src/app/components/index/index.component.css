@@ -6,9 +6,29 @@ body {
     height: auto;
     color: white;
 }
-
+@font-face {
+    font-family: "nbaJazz";
+    src: url(../../fonts/NBAJAZZ_.TTF);
+}
+mat-progress-bar{
+    margin-top: 5%;
+}
+footer {
+    display: flex;
+    justify-content: center;
+    padding: 5px;
+    background-color: #4a4c4f;
+    color: #fff;
+  }
 mat-card{
     width: 20%;
+    background-color: rgba(255, 255, 255, 0.301);
+    font-family: "nbaJazz", Impact, 'Arial Narrow Bold', sans-serif ;
+    transition: 0.2s all;
+}
+mat-card:hover{
+    transform:scale(1.1);
+    box-shadow:  0 6px 8px 0px rgb(61, 48, 48);
 }
 mat-card-title-group{
     margin-bottom: 5%;
