@@ -1,0 +1,17 @@
+<!--En el div de abajo es donde tienes que poner el router link para que te lleve a la info del equipo-->
+<div
+  [ngStyle]="{ 'flex-basis': 'max-content' }"
+  class="containerP"
+  [routerLink]="['/team-info', oneTeam.teamId, this.yearSelected]"
+>
+  <img
+    fxLayoutAlign="center center"
+    [src]="showImgTeam(oneTeam)"
+    width="200px"
+    onerror="this.onerror = null; this.src='https://pbs.twimg.com/profile_images/991091843558494209/ehalD2tN_400x400.jpg'"
+  />
+  <p fxLayoutAlign="center center">{{ oneTeam.fullName }}</p>
+  <h3 fxLayout="row" fxLayoutAlign="center center" class="moreInfo">
+    MORE INFO<mat-icon>read_more</mat-icon>
+  </h3>
+</div>

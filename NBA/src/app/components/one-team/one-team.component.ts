@@ -1,23 +1,31 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Team } from 'src/app/interfaces/teams.interface';
+
 import { TeamsService } from 'src/app/services/teams.service';
 import { environment } from 'src/environments/environment';
+
 @Component({
-  selector: 'app-team-list',
-  templateUrl: './team-list.component.html',
-  styleUrls: ['./team-list.component.css'],
+  selector: 'app-one-team',
+  templateUrl: './one-team.component.html',
+  styleUrls: ['./one-team.component.css'],
 })
-export class TeamListComponent implements OnInit {
+export class OneTeamComponent implements OnInit {
   listTeam: Team[] = [];
   year = new Date().getFullYear();
   shearchText: any;
   listYear: number[] = [];
   yearSelected: number = this.year;
-
+  
   constructor(private teamService: TeamsService) {}
 
-  ngOnInit(): void {
-    this.showTeam();
+  @Input() oneTeam: Team = {} as Team;
+
+  ngOnInit() {}
+
+  /**Muestra las imagenes de los equipos */
+  showImgTeam(team: Team) {
+    let nick = team.fullName.substring(3, -1).toUpperCase();
+    return `${environment.API_IMG_TEAM_URL}/${nick}_logo.svg`;
   }
 
   /**Muestra los equipos */
