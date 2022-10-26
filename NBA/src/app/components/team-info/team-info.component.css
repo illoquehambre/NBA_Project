@@ -34,6 +34,14 @@ footer {
   background-color: rgba(219, 47, 35, 0.8);
   transition: 0.2s all;
 }
+.coach {
+  width: 80%;
+  margin: auto;
+  margin-top: 0.5pt;
+  border-radius: 2%;
+  background-color: rgba(219, 47, 35, 0.8);
+
+}
 
 .playerList:hover {
   transform: scale(1.1);
