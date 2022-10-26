@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Player } from 'src/app/interfaces/playersList.interface';
+import { Coach } from 'src/app/interfaces/teamCoach.interface';
 import { PlayerElement } from 'src/app/interfaces/teamPlayers.interface';
 import { Team } from 'src/app/interfaces/teams.interface';
 import { Match, StandardHTeam } from 'src/app/interfaces/teamSchudele.interface';
@@ -24,6 +25,8 @@ export class TeamInfoComponent implements OnInit {
   listTeamPlayer: PlayerElement[] = [];
   teamRoster: Player[] = [];
   matchList: Match[] = [];
+  coachList: Coach[]=[];
+  coachSelected: Coach= {} as Coach;
 
 
   listScore: StandardHTeam[] = [];
@@ -35,11 +38,11 @@ export class TeamInfoComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-
+    this.teamRoster=[]
     this.getParamsFromUrl();
     this.showTeam();
     this.showPlayers();
-
+    this.selectActualCoach();
   }
 
   getParamsFromUrl() {
@@ -95,7 +98,7 @@ export class TeamInfoComponent implements OnInit {
 
     this.teamService.getPlayerOfTeam(this.year, this.teamSelected.urlName).subscribe((res) => {
       this.listTeamPlayer = res.league.standard.players;
-
+      
       for (let player of this.listPlayer) {
         for (let teamplayer of this.listTeamPlayer) {
           if (player.personId == teamplayer.personId) {
@@ -116,6 +119,21 @@ export class TeamInfoComponent implements OnInit {
     });
 
   }
+  showCoaches() {
+    debugger
+    this.teamService.getCoaches(this.year).subscribe((res) => {
+      this.coachList = res.league.standard;
+    });
+  }
+  selectActualCoach(){
+    this.showCoaches();
+    for(let coach of this.coachList){
+      if(coach.teamId==this.id && !coach.isAssistant){
+        this.coachSelected=coach;
+      }
+    }
+  }
+
   showImgTeam() {
     let nick = this.teamSelected.fullName.toUpperCase().substring(3, 0);
     return `${environment.API_IMG_TEAM_URL}/${nick}_logo.svg`;
@@ -131,9 +149,5 @@ export class TeamInfoComponent implements OnInit {
     var numeric = Number(input);
     return numeric;
   }
-  reloadPage() {
-    this.ngOnInit();
-    setTimeout(window.location.reload, 10);
-    
-  }
+  
 }
