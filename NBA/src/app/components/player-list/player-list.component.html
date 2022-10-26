@@ -47,15 +47,12 @@
     fxLayoutAlign="start center"
     class="container"
   >
-    <li
-      fxFlex="25"
-      fxLayoutAlign="center center"
-      *ngFor="let player of playerList | filter: shearchText"
-    >
-    
-      <!--En el div de abajo es donde tienes que poner el router link para que te lleve a la info del equipo-->
-      
-    </li>
+  <app-player
+  fxFlex="25"
+  fxLayoutAlign="center center"
+  *ngFor="let player of playerList | filter: shearchText"
+  [player]="player"
+></app-player>
   </div>
   <mat-progress-bar mode="determinate" value="100"></mat-progress-bar>
   <footer>
