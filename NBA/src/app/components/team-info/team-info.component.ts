@@ -42,7 +42,7 @@ export class TeamInfoComponent implements OnInit {
     this.getParamsFromUrl();
     this.showTeam();
     this.showPlayers();
-    this.selectActualCoach();
+    this.showCoaches();
   }
 
   getParamsFromUrl() {
@@ -120,13 +120,13 @@ export class TeamInfoComponent implements OnInit {
 
   }
   showCoaches() {
-    debugger
     this.teamService.getCoaches(this.year).subscribe((res) => {
       this.coachList = res.league.standard;
+      this.selectActualCoach();
     });
   }
   selectActualCoach(){
-    this.showCoaches();
+    
     for(let coach of this.coachList){
       if(coach.teamId==this.id && !coach.isAssistant){
         this.coachSelected=coach;
@@ -144,6 +144,9 @@ export class TeamInfoComponent implements OnInit {
   }
   showImgPlayer(player: Player) {
     return `${environment.API_IMG_PLAYER_URL}/${player.personId}.png`;
+  }
+  showImgCoach() {
+    return `${environment.API_IMG_PLAYER_URL}/${this.coachSelected.personId}.png`;
   }
   convertStringToNumber(input: string) {
     var numeric = Number(input);
