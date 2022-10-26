@@ -42,6 +42,7 @@
                   <th></th>
                   <th>Home Team</th>
                   <th>Score</th>
+                  <th>-</th>
                   <th>Score</th>
                   <th>Visitant Team</th>
                 </tr>
@@ -58,7 +59,7 @@
                   <td
                     [ngStyle]="{ color: this.convertStringToNumber(match.hTeam.score) > this.convertStringToNumber(match.vTeam.score) ? 'green' : this.convertStringToNumber(match.hTeam.score) < this.convertStringToNumber(match.vTeam.score) ? 'red' : 'yellow'  }">
                     {{match.hTeam.score}}</td>
-
+                  <td>-</td>
                   <td
                     [ngStyle]="{ color: this.convertStringToNumber(match.hTeam.score) < this.convertStringToNumber(match.vTeam.score) ? 'green' : this.convertStringToNumber(match.hTeam.score) > this.convertStringToNumber(match.vTeam.score) ? 'red' : 'yellow'  }">
                     {{match.vTeam.score}}</td>
@@ -89,10 +90,13 @@
             </mat-card-content>
           </mat-card>
           <h2 class="center">Main Coach</h2>
-          <mat-card class="playerList" >
-            <mat-card-title-group> {{coachSelected.firstName}} {{coachSelected.lastName}}</mat-card-title-group>
+          <mat-card class="coach" >
+            <mat-card-title-group></mat-card-title-group>
             <mat-card-content fxLayout="row" fxLayoutAlign="start center">
-            
+              <img fxFlex="20" [src]="showImgCoach()" class="heaven" />
+              <div fxFlex="80" fxLayoutAlign="center">
+                <p>{{coachSelected.firstName}}   {{coachSelected.lastName}}</p>
+              </div>
             </mat-card-content>
           </mat-card>
           
