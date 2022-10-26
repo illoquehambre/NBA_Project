@@ -52,27 +52,9 @@
       fxLayoutAlign="center center"
       *ngFor="let player of playerList | filter: shearchText"
     >
+    
       <!--En el div de abajo es donde tienes que poner el router link para que te lleve a la info del equipo-->
-      <div
-        [ngStyle]="{ 'flex-basis': 'max-content' }"
-        class="containerP"
-        [routerLink]="['/player-info', this.yearSelected, player.personId]"
-      >
-        <img
-          [ngStyle]="{ margin: 'auto' }"
-          fxLayoutAlign="center center"
-          [src]="showImgPlayer(player)"
-          width="170px"
-          onerror="this.onerror = null; this.src='https://pbs.twimg.com/profile_images/991091843558494209/ehalD2tN_400x400.jpg'"
-        />
-
-        <p fxLayoutAlign="center center">
-          {{ player.firstName }} {{ player.lastName }}
-        </p>
-        <h3 fxLayout="row" fxLayoutAlign="center center" class="moreInfo">
-          MORE INFO<mat-icon>read_more</mat-icon>
-        </h3>
-      </div>
+      
     </li>
   </div>
   <mat-progress-bar mode="determinate" value="100"></mat-progress-bar>

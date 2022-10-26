@@ -148,6 +148,5 @@ export class TeamInfoComponent implements OnInit {
   convertStringToNumber(input: string) {
     var numeric = Number(input);
     return numeric;
-  }
-  
+  }  
 }
