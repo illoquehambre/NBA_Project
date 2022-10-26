@@ -13,7 +13,6 @@ import { TeamInfoComponent } from './components/team-info/team-info.component';
 import { PlayerListComponent } from './components/player-list/player-list.component';
 import { PlayerInfoComponent } from './components/player-info/player-info.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { PipePipe } from './pipes/pipe.pipe';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { PlayerComponent } from './components/player/player.component';
@@ -27,7 +26,6 @@ import { OneTeamComponent } from './components/one-team/one-team.component';
     TeamInfoComponent,
     PlayerListComponent,
     PlayerInfoComponent,
-    PipePipe,
     PageNotFoundComponent,
     PlayerComponent,
     OneTeamComponent,
