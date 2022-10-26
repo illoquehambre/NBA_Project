@@ -82,6 +82,7 @@ export class PlayerInfoComponent implements OnInit {
   }
 
   showImgTeam(id: string) {
+    /*Se queda con las 3 primeras letras del nickName del equipo y lo pasa a mayúscula*/
     let nick = id.substring(3, -1).toUpperCase();
     return `${environment.API_IMG_TEAM_URL}/${nick}_logo.svg`;
   }
